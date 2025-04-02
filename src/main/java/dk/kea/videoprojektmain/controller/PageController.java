@@ -14,11 +14,11 @@ import java.util.ArrayList;
 @Controller
 public class PageController {
 
-    @Autowired
-    CarRepository carRepo;
+    //@Autowired
+    //CarRepository carRepo;
 
-    /*@Autowired
-    CarRepositorySTUB carRepo;*/
+    @Autowired
+    CarRepositorySTUB carRepo;
 
 
     // Brug med database
@@ -26,7 +26,7 @@ public class PageController {
     @GetMapping("/")
     public String mainPage(Model model) {
         ArrayList<Car> carList;
-        carList = carRepo.getAllCars();
+        carList = (ArrayList<Car>) carRepo.getAllCars();
         model.addAttribute("carList", carList);
         return "index";
     }
